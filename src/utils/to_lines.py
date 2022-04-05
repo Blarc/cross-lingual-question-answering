@@ -1,11 +1,12 @@
 import json
 
 
-def translate(data_name, number_of_parts):
+def to_lines(data_name, number_of_parts):
     """
-    Translates the json data with the help of the translated lines.
-    The function expects files with translated lines to exist in the
-    data directory.
+    Converts all json data, that needs to be translated to separate lines.
+    These files with lines can be sent to eTranslation for translating.
+    For keeping the files small enough, parameter :param number_of_parts
+    can be specified.
     
     :param data_name: name of the data file (train, dev)
     :param number_of_parts: number of files the translated lines are split to
@@ -28,4 +29,4 @@ def translate(data_name, number_of_parts):
 
 
 if __name__ == '__main__':
-    translate('train', 2)
+    to_lines('train', 5)
