@@ -13,19 +13,23 @@ def to_lines(data_name, number_of_parts):
     """
     with open(f'../../data/{data_name}-v2.0.json', 'r') as file:
         data = json.load(file)['data']
+        
     part_size = len(data) // number_of_parts + 1
     for part in range(number_of_parts):
-        with open(f'../../data/tmp/lines_{data_name}_part_{part}.txt', 'w', encoding='UTF-8') as part_file:
+        with open(f'../../data/tmp/{data_name}/lines_{data_name}_part_{part}.txt', 'w', encoding='UTF-8') as part_file:
 
             for theme in range(part * part_size, min((part + 1) * part_size, len(data))):
 
                 for paragraph in data[theme]['paragraphs']:
-                    print(paragraph['context'], file=part_file)
+                    print(paragraph['context'].strip().replace('\n', ''), file=part_file)
                     for qas in paragraph['qas']:
                         for answer in qas['answers']:
-                            print(answer['text'], file=part_file)
+                            print(answer['text'].strip().replace('\n', ''), file=part_file)
+                        if 'plausible_answers' in qas:
+                            for plausible_answer in qas['plausible_answers']:
+                                print(plausible_answer['text'].strip().replace('\n', ''), file=part_file)
 
-                        print(qas['question'], file=part_file)
+                        print(qas['question'].strip().replace('\n', ''), file=part_file)
 
 
 if __name__ == '__main__':
