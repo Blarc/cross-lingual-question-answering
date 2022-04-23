@@ -1,4 +1,6 @@
 sphinx
-livereload
+livereload~=2.6.3
 myst-parser
 furo
+fasttext
+nltk

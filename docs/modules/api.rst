@@ -11,3 +11,9 @@ translate.py
 
 .. automodule:: translate
     :members:
+
+create_fasttext_model.py
+-------------------------------------------------------------------------------
+
+.. automodule:: create_fasttext_model
+    :members:

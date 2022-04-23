@@ -131,3 +131,4 @@ dmypy.json
 
 tmp
 /docs/docs/_build/
+/models/
