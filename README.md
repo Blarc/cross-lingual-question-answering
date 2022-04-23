@@ -1,3 +1,3 @@
 GitHub Pages of [Blarc/cross-lingual-question-answering](https://github.com/Blarc/cross-lingual-question-answering.git)
 ===
-Sphinx html documentation of [499cfc37](https://github.com/Blarc/cross-lingual-question-answering/tree/499cfc37fb9590a57f005ab524ec64546c69f305)
+Sphinx html documentation of [dd95abb2](https://github.com/Blarc/cross-lingual-question-answering/tree/dd95abb2129ce657a121ea0356a93abdc1371257)
