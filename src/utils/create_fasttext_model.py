@@ -1,6 +1,8 @@
 import json
 import fasttext
 
+from translation_utils import clean_text
+
 
 def create_fasttext_model(data_name):
     """
@@ -15,13 +17,16 @@ def create_fasttext_model(data_name):
     with open(f'../../data/tmp/{data_name}-contexts-merged.txt', 'w', encoding='UTF-8') as file:
         for theme in data:
             for paragraph in theme['paragraphs']:
-                print(paragraph['context'], file=file)
-    
+                context = paragraph['context']
+                context = clean_text(context)
+                print(context, file=file)
+
     # TODO: Pre-proccess text before training the model.
     # TODO: Test different parameters (i.e. wordNgrams)
-    model = fasttext.train_unsupervised(f'../../data/tmp/{data_name}-contexts-merged.txt', wordNgrams=3)
+    model = fasttext.train_unsupervised(f'../../data/tmp/{data_name}-contexts-merged.txt', wordNgrams=1)
     model.save_model(f'../../models/fasttext_{data_name}_model.bin')
 
 
 if __name__ == '__main__':
-    create_fasttext_model('train')
+    print('DEPRECATED: Use pretrained FastText model cc.sl.300.bin that can be downloaded from FastText website.')
+    create_fasttext_model('dev')

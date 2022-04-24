@@ -33,7 +33,8 @@ author = 'Jakob Maležič'
 extensions = [
     'myst_parser',
     'sphinx.ext.autodoc',
-    'sphinx.ext.doctest'
+    'sphinx.ext.doctest',
+    'nbsphinx'
 ]
 
 # Add any paths that contain templates here, relative to this directory.

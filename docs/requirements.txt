@@ -2,3 +2,4 @@ sphinx
 livereload
 myst-parser
 furo
+nbsphinx

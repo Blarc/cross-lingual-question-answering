@@ -17,3 +17,8 @@ create_fasttext_model.py
 
 .. automodule:: create_fasttext_model
     :members:
+
+translation_utils.py
+-------------------------------------------------------------------------------
+.. automodule:: translation_utils
+    :members:
