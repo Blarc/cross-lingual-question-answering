@@ -9,4 +9,3 @@ Welcome to the documentation for Cross Lingual Question answering.
     modules/description
     modules/getting_started
     modules/api
-    modules/notebooks

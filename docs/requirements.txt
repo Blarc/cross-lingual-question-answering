@@ -1,7 +1,10 @@
 sphinx
-livereload
+livereload~=2.6.3
 myst-parser
 furo
+nltk~=3.7
+numpy~=1.22.3
+scikit-learn~=1.0.2
 nbsphinx
 numpy
 pandoc
