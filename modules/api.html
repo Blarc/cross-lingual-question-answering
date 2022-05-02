@@ -232,6 +232,109 @@ data directory.</p>
 <section id="create-fasttext-model-py">
 <h2>create_fasttext_model.py<a class="headerlink" href="#create-fasttext-model-py" title="Permalink to this headline">#</a></h2>
 </section>
+<section id="module-translation_utils">
+<span id="translation-utils-py"></span><h2>translation_utils.py<a class="headerlink" href="#module-translation_utils" title="Permalink to this headline">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="translation_utils.average_similarity">
+<span class="sig-prename descclassname"><span class="pre">translation_utils.</span></span><span class="sig-name descname"><span class="pre">average_similarity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_ngrams_embeddings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_ngrams_embeddings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translation_utils.average_similarity" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculates average similarity between the most similar
+query n-grams and context n-grams.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query_ngrams_embeddings</strong> – n-grams for the text we want to find in context</p></li>
+<li><p><strong>context_ngrams_embeddings</strong> – n-grams for the context</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>average of n-grams similarities with the highest similarities</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="translation_utils.clean_text">
+<span class="sig-prename descclassname"><span class="pre">translation_utils.</span></span><span class="sig-name descname"><span class="pre">clean_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translation_utils.clean_text" title="Permalink to this definition">#</a></dt>
+<dd><p>Cleans the text, so it can be used to find similar words.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>text</strong> – The text we would like to clean.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Cleaned text.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="translation_utils.find_similar_text">
+<span class="sig-prename descclassname"><span class="pre">translation_utils.</span></span><span class="sig-name descname"><span class="pre">find_similar_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fasttext_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translation_utils.find_similar_text" title="Permalink to this definition">#</a></dt>
+<dd><p>Finds the most similar word in text based on the FastText
+word embedding model and cosine similarity between n-grams.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – the text we are searching for</p></li>
+<li><p><strong>context</strong> – the text in which we are searching</p></li>
+<li><p><strong>fasttext_model</strong> – pre-trained FastText model for calculating word embeddings</p></li>
+<li><p><strong>start_n</strong> – the size of the smallest n-gram</p></li>
+<li><p><strong>end_n</strong> – the size of the larges n-gram</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>index of the first word in the context and the weighted similarity score</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="translation_utils.get_grams">
+<span class="sig-prename descclassname"><span class="pre">translation_utils.</span></span><span class="sig-name descname"><span class="pre">get_grams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translation_utils.get_grams" title="Permalink to this definition">#</a></dt>
+<dd><p>Takes text as an input and returns N-grams, which are consecutive strings
+of N words.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> – Text to convert to n-grams.</p></li>
+<li><p><strong>from</strong> – The size of the smallest n-gram.</p></li>
+<li><p><strong>to</strong> – The size of the biggest n-gram.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Generator that returns n-grams.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="translation_utils.grams_to_embeddings">
+<span class="sig-prename descclassname"><span class="pre">translation_utils.</span></span><span class="sig-name descname"><span class="pre">grams_to_embeddings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ngrams_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translation_utils.grams_to_embeddings" title="Permalink to this definition">#</a></dt>
+<dd><p>Transforms N-grams to word embeddings that are needed for
+calculating similarity between N-grams.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ngrams_list</strong> – N-grams which we want to transform.</p></li>
+<li><p><strong>model</strong> – FastText model used for calculating word embeddings.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>FastText word embeddings vectors.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="translation_utils.weighted_similarity">
+<span class="sig-prename descclassname"><span class="pre">translation_utils.</span></span><span class="sig-name descname"><span class="pre">weighted_similarity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">average_similarities</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translation_utils.weighted_similarity" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculates weighted similarities based on the formula
+from the article. The longest n-gram has the biggest
+weight.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>average_similarities</strong> – average similarities between the most similar n-grams</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>weighted similarity of different lengths of n-grams</p>
+</dd>
+</dl>
+</dd></dl>
+</section>
 </section>
 
         </article>
@@ -287,6 +390,7 @@ data directory.</p>
 <li><a class="reference internal" href="#module-to_lines">to_lines.py</a></li>
 <li><a class="reference internal" href="#module-translate">translate.py</a></li>
 <li><a class="reference internal" href="#create-fasttext-model-py">create_fasttext_model.py</a></li>
+<li><a class="reference internal" href="#module-translation_utils">translation_utils.py</a></li>
 </ul>
 </li>
 </ul>
