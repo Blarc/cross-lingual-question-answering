@@ -6,6 +6,7 @@ University of Ljubljana*.
 ## Description
 **TODO**
 
+
 ## Repository structure
 The repository contains the following folders:
 - `article` contains the latex files and the article in pdf
