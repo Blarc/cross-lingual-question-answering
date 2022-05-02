@@ -4,7 +4,10 @@ of *Natural Language Processing* course at the *Faculty of Computer and Informat
 University of Ljubljana*.
 
 ## Description
-**TODO**
+The goal of the project is to prepare an english, slovene and multilingual english and slovene model for question 
+answering system. Stanford Question Answering Dataset ([SQuAD 2.0](https://rajpurkar.github.io/SQuAD-explorer/))
+is used as the main corpora. For training a slovene model, SQuAD corpora is automatically translated to Slovene, using the 
+[EK translator](https://ec.europa.eu/info/resources-partners/machine-translation-public-administrations-etranslation_en).
 
 
 ## Repository structure
