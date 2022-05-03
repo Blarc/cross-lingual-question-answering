@@ -20,7 +20,15 @@ def clean_text(text_):
     text_ = text_.replace('„', ' ')
     text_ = text_.replace('“', ' ')
     text_ = text_.replace('°', ' ')
-    text_ = text_.replace('\'', ' ')
+    text_ = text_.replace('/', ' ')
+    text_ = text_.replace('\\', ' ')
+    text_ = text_.replace('[', ' ')
+    text_ = text_.replace(']', ' ')
+    text_ = text_.replace('{', ' ')
+    text_ = text_.replace('}', ' ')
+    text_ = text_.replace(';', ' ')
+    text_ = text_.replace(':', ' ')
+    text_ = text_.replace('\'\'', ' ')
     text_ = re.sub('\s+', ' ', text_)
     return text_
 
