@@ -1,7 +1,7 @@
 import json
 
 
-def translate(data_name, number_of_parts):
+def translate(data_name, data_suffix, number_of_parts):
     """
     Translates the json data with the help of the translated lines.
     The function expects files with translated lines to exist in the
@@ -14,7 +14,7 @@ def translate(data_name, number_of_parts):
         data = json.load(file)['data']
     translated_lines = []
     for part in range(number_of_parts):
-        with open(f'../../data/tmp/{data_name}_SL/lines_{data_name}_part_{part}_SL.txt', 'r', encoding='UTF-8') as part_file:
+        with open(f'../../data/tmp/{data_name}{data_suffix}_SL/lines_{data_name}{data_suffix}_part_{part}_SL.txt', 'r', encoding='UTF-8') as part_file:
             translated_lines.extend(part_file.readlines())
             
     index = 0
@@ -34,9 +34,9 @@ def translate(data_name, number_of_parts):
                 qas['question'] = translated_lines[index].rstrip()
                 index += 1
                 
-    with open(f'../../data/{data_name}-v2.0_SL.json', 'w', encoding='UTF-8') as json_file:
+    with open(f'../../data/{data_name}{data_suffix}-v2.0_SL.json', 'w', encoding='UTF-8') as json_file:
         json.dump(data, json_file, sort_keys=True, indent=4, ensure_ascii=False)
 
 
 if __name__ == '__main__':
-    translate('train', 5)
+    translate('dev', '_clean', 5)
