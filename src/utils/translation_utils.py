@@ -161,5 +161,5 @@ def find_similar_text(query, context, fasttext_model, start_n=1, end_n=3):
         start_indexes_by_ngram.append(start_indexes_by_gram[0])
         average_similarities_by_ngram.append(sum(best_similarities_by_gram) / len(best_similarities_by_gram))
 
-    return start_indexes_by_ngram, average_similarities_by_ngram
+    return start_indexes_by_ngram, weighted_similarity(average_similarities_by_ngram)
 
